@@ -1,0 +1,31 @@
+name: Test
+
+# Installs every formula from this tap as users get it, then runs its test and the audit.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - name: Check out the tap
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install, test and audit
+        run: |
+          brew tap ivan-magda/tap "$GITHUB_WORKSPACE"
+          for formula in Formula/*.rb; do
+            name="ivan-magda/tap/$(basename "$formula" .rb)"
+            brew install "$name"
+            brew test "$name"
+            brew audit --strict "$name"
+          done
