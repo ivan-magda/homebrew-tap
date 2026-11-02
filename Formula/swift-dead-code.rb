@@ -1,8 +1,8 @@
 class SwiftDeadCode < Formula
   desc "Find and remove dead code in SwiftPM packages and Xcode projects"
   homepage "https://github.com/ivan-magda/swift-dead-code"
-  url "https://github.com/ivan-magda/swift-dead-code/releases/download/0.1.1/swift-dead-code-0.1.1-macos.zip"
-  sha256 "e7323f8f81a3fbac25457ac9bfb8481a4a9a70cdc6e1e9b7021f393a6ab06b88"
+  url "https://github.com/ivan-magda/swift-dead-code/releases/download/0.1.2/swift-dead-code-0.1.2-macos.zip"
+  sha256 "7678e4e04d607cbdf797e8b213f9f0cd9abc58499bfb119576da0d1634d6417a"
   license "MIT"
 
   depends_on macos: :sonoma
